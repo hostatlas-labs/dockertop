@@ -33,15 +33,14 @@ filter. Single binary by [HostAtlas](https://hostatlas.app), MIT-licensed.
 
 ### Install
 
-**Direct download (CDN):**
+**One-liner:**
 
 ```bash
-VERSION=$(curl -fsSL https://tools.hostatlas.app/dockertop/latest.json | jq -r .version)
-OS=$(uname -s | tr '[:upper:]' '[:lower:]')
-ARCH=$(uname -m | sed 's/x86_64/amd64/; s/aarch64/arm64/')
-curl -fsSL "https://tools.hostatlas.app/dockertop/${VERSION}/dockertop_${VERSION}_${OS}_${ARCH}.tar.gz" | tar xz
-sudo mv dockertop /usr/local/bin/
+curl -fsSL https://tools.hostatlas.app/install.sh | sh -s dockertop
 ```
+
+Add `--user` for a `$HOME/.local/bin` install without sudo, or
+`--version=1.0.0` to pin a specific release.
 
 **With Go:**
 
@@ -49,7 +48,13 @@ sudo mv dockertop /usr/local/bin/
 go install github.com/hostatlas-labs/dockertop/cmd/dockertop@latest
 ```
 
-**Manual:** Browse all releases at [github.com/hostatlas-labs/dockertop/releases](https://github.com/hostatlas-labs/dockertop/releases).
+**Homebrew (macOS, Linuxbrew):**
+
+```bash
+brew install hostatlas-labs/tap/dockertop
+```
+
+**Manual:** Browse all releases at [github.com/hostatlas-labs/dockertop/releases](https://github.com/hostatlas-labs/dockertop/releases) or [tools.hostatlas.app](https://tools.hostatlas.app/tools.json).
 
 ### Run
 
