@@ -1,0 +1,23 @@
+# Binaries
+/dockertop
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build output
+dist/
+
+# Test output
+*.test
+*.out
+coverage.txt
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
