@@ -33,13 +33,23 @@ filter. Single binary by [HostAtlas](https://hostatlas.app), MIT-licensed.
 
 ### Install
 
-```bash
-# Linux / macOS (signed binary)
-curl -sSL https://github.com/hostatlas-labs/dockertop/releases/latest/download/install.sh | bash
+**Direct download (CDN):**
 
-# From source
+```bash
+VERSION=$(curl -fsSL https://tools.hostatlas.app/dockertop/latest.json | jq -r .version)
+OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+ARCH=$(uname -m | sed 's/x86_64/amd64/; s/aarch64/arm64/')
+curl -fsSL "https://tools.hostatlas.app/dockertop/${VERSION}/dockertop_${VERSION}_${OS}_${ARCH}.tar.gz" | tar xz
+sudo mv dockertop /usr/local/bin/
+```
+
+**With Go:**
+
+```bash
 go install github.com/hostatlas-labs/dockertop/cmd/dockertop@latest
 ```
+
+**Manual:** Browse all releases at [github.com/hostatlas-labs/dockertop/releases](https://github.com/hostatlas-labs/dockertop/releases).
 
 ### Run
 
