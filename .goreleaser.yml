@@ -55,3 +55,23 @@ release:
   draft: false
   prerelease: auto
   name_template: "dockertop v{{.Version}}"
+
+brews:
+  - name: dockertop
+    repository:
+      owner: hostatlas-labs
+      name: homebrew-tap
+      branch: main
+      token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
+    directory: Formula
+    homepage: "https://tools.hostatlas.app"
+    description: "Prettier docker stats for the terminal — CPU sparklines, Compose grouping"
+    license: MIT
+    install: |
+      bin.install "dockertop"
+    test: |
+      system "#{bin}/dockertop", "--version"
+    commit_author:
+      name: hostatlas-labs-bot
+      email: hello@hostatlas.app
+    commit_msg_template: "brew: bump dockertop to {{ .Tag }}"
